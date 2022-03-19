@@ -1,5 +1,5 @@
 provider "kubernetes" {
-#   load_config_file       = false # deprecated
+  #   load_config_file       = false # deprecated
   cluster_ca_certificate = base64decode(var.kubernetes_cluster_cert_data)
   host                   = var.kubernetes_cluster_endpoint
   exec {
@@ -16,8 +16,8 @@ provider "helm" {
     host                   = var.kubernetes_cluster_endpoint
     exec {
       api_version = "client.authentication.k8s.io/v1alpha1"
-    command     = "aws"
-    args        = ["eks", "get-token", "--cluster-name", "${var.kubernetes_cluster_name}"]
+      command     = "aws"
+      args        = ["eks", "get-token", "--cluster-name", "${var.kubernetes_cluster_name}"]
     }
   }
 }
